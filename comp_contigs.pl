@@ -3,9 +3,26 @@
 use strict;
 use warnings;
 
-# take the list of contigs and the probes used to assess their expression
+die "usage: comp_contigs <file with probe list>" unless (@ARGV == 1);
 
-# make a hash of the values I guess or 2 hashes, one revcom the other not
+my $filename = shift @ARGV;
+open($probe_list, '<', $filename);
+
+# put each probe into a particular hash (reverse, forward, genes)
+my %reverse_probes_for  = ();
+my %forward_probes_for  = ();
+my %genes_probes_for 	= ();
+
+while (my $line = <$probe_list>) {
+	if ($line =~ m/(CUST_\d+_\w+) (rc_contig\d{5})/) {
+		
+	}
+
+	elsif # line contains pattern contig\d{5} put in contig hash 
+
+	else # put in gene hash
+
+}
 
 # loop through the contigs, find the ones that have the same id and see if
 # they are the same
