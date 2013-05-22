@@ -52,9 +52,8 @@ foreach my $contig (keys %reverse_probe_for) {
 
 
 
-# reporting results
-
-print length(keys %reverse_probe_for), " reverse contigs\n";
-print length(keys %forward_probe_for), " forward contigs\n";
-print length(@same_probes), " are the same\n";
-print length(@different_probes), " are different\n";
+print scalar(keys %forward_probe_for), " reverse contigs\n";
+print scalar(keys %forward_probe_for), " forward contigs\n";
+print scalar(keys %gene_probe_for), " gene contigs\n";
+print scalar(@same_probes), " are the same\n";
+print scalar(@different_probes), " are different\n";
