@@ -35,8 +35,22 @@ while (my $line = <$probe_list>) {
 
 }
 
-# loop through the contigs, find the ones that have the same id and see if
-# they are the same
+# comparing the contigs
+my @same_probes;
+my @different_probes;
+
+foreach my $contig (keys %reverse_probe_for) {
+	# get the forward and back of contig
+	my $forward = $forward_probe_for{$contig};
+	my $reverse = $reverse_probe_for{$contig};
+	if ($forward eq $reverse ) {
+		push(@same_probes, $contig)	
+	} else {
+		push(@different_probes, $contig)
+	}
+}
+
+
 
 # if they are the same add to an array
 
