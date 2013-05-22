@@ -52,6 +52,9 @@ foreach my $contig (keys %reverse_probe_for) {
 
 
 
-# if they are the same add to an array
+# reporting results
 
-# if not add to a different array
+print length(keys %reverse_probe_for), " reverse contigs\n";
+print length(keys %forward_probe_for), " forward contigs\n";
+print length(@same_probes), " are the same\n";
+print length(@different_probes), " are different\n";
