@@ -14,7 +14,10 @@ my %forward_probe_for  = ();
 my %gene_probe_for 	= ();
 
 while (my $line = <$probe_list>) {
-	if ($line =~ m/(CUST_\d+_\w+)\s(rc_contig\d{5})/) {
+	if ($line !~ m/CUST_\d+_\w+/) {
+		next;
+	}
+	if ($line =~ m/(CUST_\d+_\w+)\src_(contig\d{5})/) {
 		
 		# add an entry to reverse hash
 		$reverse_probe_for{$2} = $1;
