@@ -18,14 +18,21 @@ while (my $line = <$probe_list>) {
 		next;
 	}
 	if ($line =~ m/(CUST_\d+_\w+)\src_(contig\d{5})/) {
-		
-		# add an entry to reverse hash
-		$reverse_probe_for{$2} = $1;
+		if (exists $reverse_probe_for{$2}) {
+			# push to the array in the hash
+		} else {
+			# add an entry to the hash and create a new array
+			$reverse_probe_for{$2} = $1;
+		}
+
 
 	} elsif ($line =~ m/(CUST_\d+_\w+)\s(contig\d{5})/) { 
-		
-		# add entry to forward hash
-		$forward_probe_for{$2} = $1;
+		if (exists $forward_probe_for{$2}) {
+			# push to array in hash
+		} else {
+			# add entry to forward hash and create an array
+			$forward_probe_for{$2} = $1;			
+		}
 
 	} else { 
 		# add entry to gene hash
